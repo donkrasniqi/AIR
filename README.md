@@ -1,4 +1,5 @@
-# AIR
+# 188.980 Advanced Information Retrieval
+## CheckThat! - Group 7
 
 Don Krasniqi – 121410189
 
