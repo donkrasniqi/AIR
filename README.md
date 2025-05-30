@@ -10,9 +10,8 @@ Ardit Ahmeti - 12127030
 
 Rita Selimi - 12332281 
 
----
-Github Repository - https://github.com/donkrasniqi/AIR
----
+#### Github Repository - https://github.com/donkrasniqi/AIR
+
 # 1. Traditional Information Retrieval Approach
 
 ## Method Overview
