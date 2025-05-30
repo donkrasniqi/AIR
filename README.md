@@ -67,7 +67,49 @@ Since we missed the official CLEF deadline and could not submit results to Codal
 
 On our local test split, the **BM25-based system achieved an MRR@5 of 0.5460**, demonstrating solid baseline performance. This provides a strong foundation for comparison against the team’s **neural IR approaches**, which aim to improve over this traditional method.
 
-insert here rina fisi part
+# Neural Information Retrieval: Bi-Encoder Evaluation
+
+## Overview
+
+In this project, we also evaluated the performance of various **Bi-Encoder models** for document retrieval within a Neural Information Retrieval (Neural IR) pipeline. The models were assessed using **Mean Reciprocal Rank (MRR)** at different cutoff levels — specifically **MRR@1**, **MRR@5**, and **MRR@10** — on a shared development dataset of queries and scientific documents.
+
+---
+
+## Why Use Bi-Encoders?
+
+We chose **Bi-Encoders** due to their **computational efficiency and scalability**. In contrast to Cross-Encoders, which require evaluating each query-document pair jointly, Bi-Encoders **independently encode queries and documents** into dense vector embeddings. These embeddings can then be compared using fast similarity metrics (e.g., cosine similarity), enabling **real-time retrieval** from large-scale document collections.
+
+This makes Bi-Encoders particularly well-suited for use as **first-stage retrievers** in multi-stage IR pipelines.
+
+---
+
+## Models Evaluated and Results
+
+The table below summarizes the retrieval performance of each model using MRR scores:
+
+| Model Name                                               | MRR@1   | MRR@5   | MRR@10  |
+|----------------------------------------------------------|---------|---------|---------|
+| `intfloat/e5-large-v2`                                   | 0.5771  | 0.6394  | 0.6461  |
+| `intfloat/e5-base-v2`                                    | 0.5400  | 0.5994  | 0.6071  |
+| `sentence-transformers/all-MiniLM-L6-v2`                 | 0.4157  | 0.4897  | 0.4994  |
+| `sentence-transformers/msmarco-distilbert-base-v4`       | 0.3650  | 0.4280  | 0.4344  |
+| `sentence-transformers/msmarco-MiniLM-L-12-v3`           | 0.3479  | 0.4126  | 0.4218  |
+
+---
+
+## Observations
+
+- The **`intfloat/e5-large-v2`** model achieved the highest scores across all MRR levels, demonstrating its strong capability as a dense retriever. This model benefits from **larger parameter capacity** and training on **diverse retrieval tasks**.
+- The **`intfloat/e5-base-v2`** model also performed very well, making it a viable alternative when **computational efficiency** is a concern.
+- **MiniLM-based models** such as `msmarco-MiniLM-L-12-v3` and `all-MiniLM-L6-v2` were **significantly faster** but consistently underperformed the E5 models in retrieval accuracy.
+- Models trained specifically for **retrieval tasks** (e.g., MSMARCO, BEIR) yielded **noticeably better performance** than those trained for general sentence similarity.
+
+---
+
+## Conclusion
+
+**Bi-Encoder models** offer an effective balance between **retrieval performance** and **inference speed**, making them a practical choice for **scalable document retrieval systems**. Among the models tested, the **E5 family** stood out as the most reliable for achieving **high retrieval accuracy**, particularly in **top-5 and top-10 rankings**.
+
 
 
 ## Neural Re-Ranking Pipeline
