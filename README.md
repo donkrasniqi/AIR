@@ -1,10 +1,15 @@
 # AIR
 
 **Don Krasniqi – 121410189**
+
 **Fisnik Berisha -  **
+
 **Rina Kastrati  -  **
+
 **Ardit Ahmeti  -  **
+
 **Rita Selimi  -  **
+
 ---
 # 1. Traditional Information Retrieval Approach
 
