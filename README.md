@@ -156,9 +156,9 @@ We start with BM25 to get a rough shortlist of papers for each tweet. Then, we f
   - For each tweet, find where the true paper appears in the top 5 (rank `r`) and use `1/r`.  
   - Average these values over all tweets to get the final score.
 
-### Our Contribution in the re-ranking appraoch
+### Our Contribution in the re-ranking approach
 
-We designed and implemented the **1 positive : 4 hard negatives** sampling strategy, ensuring that each training query includes exactly one gold paper and four BM25-derived distractors. This focused setup teaches the cross-encoder to spot subtle semantic cues missing from pure lexical matches. We also integrated the BM25 candidate generator with the cross-encoder fine-tuning, resulting in a pipeline that trains in under two hours on a single GPU.
+We designed and implemented the **1 positive: 4 hard negatives** sampling strategy, ensuring that each training query includes exactly one gold paper and four BM25-derived distractors. This focused setup teaches the cross-encoder to spot subtle semantic cues missing from pure lexical matches. We also integrated the BM25 candidate generator with the cross-encoder fine-tuning, resulting in a pipeline that trains in under two hours on a single GPU.
 
 ### Results
 - **BM25-only baseline (MRR@5):** 0.5460  
@@ -166,7 +166,7 @@ We designed and implemented the **1 positive : 4 hard negatives** sampling strat
 
 This +~0.10 MRR improvement demonstrates the effectiveness of our hard-negative approach without adding heavy computational overhead.
 
-### Second Addroach
+## Second Approach
 ### Method Overview  
 To boost the accuracy of our retrieval results, we built a neural re-ranking system using a fine-tuned CrossEncoder. Unlike traditional methods, CrossEncoders take both the query and document together and look at how they relate, which helps them better understand the context and relevance between them.  
 We started with the `cross-encoder/ms-marco-MiniLM-L-12-v2`, a lightweight but surprisingly strong model built for semantic relevance tasks. We then fine-tuned it, tailoring the model more specifically to our domain.
