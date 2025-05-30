@@ -2,13 +2,13 @@
 
 Don Krasniqi – 121410189
 
-Fisnik Berisha -  
+Fisnik Berisha - 12124486
 
-Rina Kastrati  -  
+Rina Kastrati - 12129481 
 
-Ardit Ahmeti  -  
+Ardit Ahmeti - 12127030
 
-Rita Selimi  -  
+Rita Selimi - 12332281 
 
 ---
 # 1. Traditional Information Retrieval Approach
